@@ -2,6 +2,7 @@
 /** @var \MageSuite\GoogleOptimize\ViewModel\Integration $viewModel */
 $viewModel = $block->getViewModel();
 $isEnabled = $viewModel->isEnabled();
+echo "DUPA";
 
 if ($isEnabled):
     $containerId = $viewModel->getContainerId() ?: "";

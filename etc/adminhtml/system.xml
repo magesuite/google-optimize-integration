@@ -8,37 +8,37 @@
             <label>Google Optimize</label>
             <tab>magesuite</tab>
             <resource>MageSuite_GoogleOptimize::configure_google_optimize</resource>
-            <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                <label>Enabled</label>
-                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                <frontend_class>cs-csfeature__logo</frontend_class>
-                <comment>Enables Google Optimize Script</comment>
-            </field>
-            <field id="async" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                <label>Async script</label>
-                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                <frontend_class>cs-csfeature__logo</frontend_class>
-                <comment>Decides if to load scrip asynchronously</comment>
-                <depends>
-                    <field id="enabled">1</field>
-                </depends>
-            </field>
-            <field id="anti_flicker" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
-                <label>Anti-flicker enabled</label>
-                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                <frontend_class>cs-csfeature__logo</frontend_class>
-                <comment>Enables anti-flickering script</comment>
-                <depends>
-                    <field id="enabled">1</field>
-                </depends>
-            </field>
-            <field id="container_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
-                <label>Google Optimize Container ID</label>
-                <validate>required-entry</validate>
-                <depends>
-                    <field id="enabled">1</field>
-                </depends>
-            </field>
+            <group id="integration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <frontend_class>cs-csfeature__logo</frontend_class>
+                    <comment>Enables Google Optimize Script</comment>
+                </field>
+                <field id="async" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Async script</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Decides if to load scrip asynchronously</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="anti_flicker" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Anti-flicker enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Enables anti-flickering script</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="container_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Optimize Container ID</label>
+                    <validate>required-entry</validate>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
         </section>
     </system>
 </config>

@@ -2,9 +2,11 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <google_optimize>
-            <enabled>0</enabled>
-            <async>0</async>
-            <anti-flicker>0</anti-flicker>
+            <integration>
+                <enabled>0</enabled>
+                <async>0</async>
+                <anti-flicker>0</anti-flicker>
+            </integration>
         </google_optimize>
     </default>
 </config>

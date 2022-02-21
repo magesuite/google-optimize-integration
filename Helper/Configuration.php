@@ -4,10 +4,10 @@ namespace MageSuite\GoogleOptimize\Helper;
 
 class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 {
-    const XML_PATH_GOOGLE_OPTIMIZE_ENABLED = 'google_optimize/enabled';
-    const XML_PATH_GOOGLE_OPTIMIZE_ASYNC = 'google_optimize/async';
-    const XML_PATH_GOOGLE_OPTIMIZE_ANTI_FLICKER = 'google_optimize/anti_flicker';
-    const XML_PATH_GOOGLE_OPTIMIZE_CONTAINER_ID = 'google_optimize/container_id';
+    const XML_PATH_GOOGLE_OPTIMIZE_ENABLED = 'google_optimize/integration/enabled';
+    const XML_PATH_GOOGLE_OPTIMIZE_ASYNC = 'google_optimize/integration/async';
+    const XML_PATH_GOOGLE_OPTIMIZE_ANTI_FLICKER = 'google_optimize/integration/anti_flicker';
+    const XML_PATH_GOOGLE_OPTIMIZE_CONTAINER_ID = 'google_optimize/integration/container_id';
 
     public function isEnabled(): bool
     {
