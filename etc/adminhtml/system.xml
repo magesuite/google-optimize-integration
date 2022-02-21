@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magesuite" translate="label" sortOrder="300">
+            <label>MageSuite</label>
+        </tab>
+        <section id="google_optimize" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Google Optimize</label>
+            <tab>magesuite</tab>
+            <resource>MageSuite_GoogleOptimize::configure_google_optimize</resource>
+            <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <frontend_class>cs-csfeature__logo</frontend_class>
+                <comment>Enables Google Optimize Script</comment>
+            </field>
+            <field id="async" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Async script</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <frontend_class>cs-csfeature__logo</frontend_class>
+                <comment>Decides if to load scrip asynchronously</comment>
+                <depends>
+                    <field id="enabled">1</field>
+                </depends>
+            </field>
+            <field id="anti_flicker" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                <label>Anti-flicker enabled</label>
+                <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                <frontend_class>cs-csfeature__logo</frontend_class>
+                <comment>Enables anti-flickering script</comment>
+                <depends>
+                    <field id="enabled">1</field>
+                </depends>
+            </field>
+            <field id="container_id" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Google Optimize Container ID</label>
+                <validate>required-entry</validate>
+                <depends>
+                    <field id="enabled">1</field>
+                </depends>
+            </field>
+        </section>
+    </system>
+</config>
