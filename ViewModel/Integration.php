@@ -10,7 +10,6 @@ class Integration implements \Magento\Framework\View\Element\Block\ArgumentInter
      */
     protected $configuration;
 
-
     public function __construct(
         \MageSuite\GoogleOptimizeIntegration\Helper\Configuration $configuration
     ) {
