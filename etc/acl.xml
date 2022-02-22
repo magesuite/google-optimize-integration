@@ -6,7 +6,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="MageSuite_GoogleOptimize::configure_google_optimize" title="MageSuite Google Optimize"/>
+                            <resource id="MageSuite_GoogleOptimizeIntegration::configure_google_optimize" title="MageSuite Google Optimize"/>
                         </resource>
                     </resource>
                 </resource>

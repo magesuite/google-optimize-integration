@@ -1,6 +1,6 @@
 <?php
 
-namespace MageSuite\GoogleOptimize\Helper;
+namespace MageSuite\GoogleOptimizeIntegration\Helper;
 
 class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 {

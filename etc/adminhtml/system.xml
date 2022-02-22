@@ -7,7 +7,7 @@
         <section id="google_optimize" translate="label" type="text" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Google Optimize</label>
             <tab>magesuite</tab>
-            <resource>MageSuite_GoogleOptimize::configure_google_optimize</resource>
+            <resource>MageSuite_GoogleOptimizeIntegration::configure_google_optimize</resource>
             <group id="integration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
                 <field id="enabled" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
                     <label>Enabled</label>

@@ -1,18 +1,18 @@
 <?php
 declare(strict_types=1);
 
-namespace MageSuite\GoogleOptimize\ViewModel;
+namespace MageSuite\GoogleOptimizeIntegration\ViewModel;
 
 class Integration implements \Magento\Framework\View\Element\Block\ArgumentInterface
 {
     /**
-     * @var \MageSuite\GoogleOptimize\Helper\Configuration
+     * @var \MageSuite\GoogleOptimizeIntegration\Helper\Configuration
      */
     protected $configuration;
 
 
     public function __construct(
-        \MageSuite\GoogleOptimize\Helper\Configuration $configuration
+        \MageSuite\GoogleOptimizeIntegration\Helper\Configuration $configuration
     ) {
         $this->configuration = $configuration;
     }
