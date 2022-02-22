@@ -12,7 +12,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
     public function isEnabled(): bool
     {
         return (bool) $this->scopeConfig->getValue(
-            self::XML_PATH_CONNECTOR_ENABLED,
+            self::XML_PATH_GOOGLE_OPTIMIZE_ENABLED,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }
