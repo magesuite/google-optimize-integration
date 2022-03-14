@@ -3,10 +3,16 @@
     <default>
         <google_optimize>
             <integration>
+                <container_id>0</container_id>
                 <enabled>0</enabled>
                 <async>0</async>
-                <anti-flicker>0</anti-flicker>
             </integration>
+            <anti_flicker>
+                <enabled>0</enabled>
+                <container_id></container_id>
+                <include_paths></include_paths>
+                <include_match_media></include_match_media>
+            </anti_flicker>
         </google_optimize>
     </default>
 </config>

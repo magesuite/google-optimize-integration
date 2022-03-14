@@ -5,7 +5,8 @@
   "homepage": "https://creativestyle.de",
   "license": "OSL-3.0",
   "require": {
-    "magepal/magento2-googletagmanager": "^2.5.1"
+    "magepal/magento2-googletagmanager": "^2.5.1",
+    "creativestyle/magesuite-theme-helpers": "^1.0.0"
   },
   "autoload": {
     "files": [
