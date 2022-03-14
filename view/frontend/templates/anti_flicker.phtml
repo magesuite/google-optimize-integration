@@ -1,0 +1,62 @@
+<?php
+/** @var \MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize $viewModel */
+/**
+ * Anti-flicker script for Google Optimize,
+ * extended to allow page-specific and media-query initialization
+ * https://support.google.com/optimize/answer/7100284?hl=en
+ */
+
+$viewModel = $block->getViewModel();
+$isAntiFlickerEnabled = $viewModel->isAntiFlickerEnabled();
+$containerId = $viewModel->getContainerIdForAntiFlicker() ?: "";
+$jsonConfig = $viewModel->getAntiFlickerJsonConfig();
+$controller = $block->getRequest()->getFullActionName();
+?>
+
+<?php if ($isAntiFlickerEnabled) : ?>
+    <script>/* defer-ignore */
+        (function (a, s, y, n, c, h, i, d, e) {
+            const jsonConfig = <?= /* @noEscape */ $jsonConfig ?>;
+            const controller = "<?= /* @noEscape */ $controller ?>"
+
+            if (!jsonConfig) {
+                return;
+            }
+
+            let pathsMatches = false;
+
+            if (!jsonConfig.includePaths.length) {
+                pathsMatches = true;
+            } else {
+                pathsMatches = jsonConfig.includePaths.some((str) => {
+                    return controller === str || a.location.href.indexOf(str) !== -1;
+                });
+            }
+
+            let matchMediaMatches = false;
+
+            if (!jsonConfig.includeMatchMedia.length) {
+                matchMediaMatches = true;
+            } else {
+                matchMediaMatches = jsonConfig.includeMatchMedia.some((mq) => {
+                    const mqList = a.matchMedia(mq)
+                    return mqList.matches;
+                });
+            }
+
+            if (matchMediaMatches && pathsMatches) {
+                s.documentElement.className += ' ' + y;
+                h.start = 1 * new Date;
+                h.end = i = function () {
+                    s.documentElement.className = s.documentElement.className.replace(RegExp(' ?' + y), '')
+                };
+                (a[n] = a[n] || []).hide = h;
+                setTimeout(function () {
+                    i();
+                    h.end = null
+                }, c);
+                h.timeout = c;
+            }
+        })(window, document, 'cs-anti-flicker', 'dataLayer', 4000, {'<?= $block->escapeHtml($containerId) ?>': true});
+    </script>
+<?php endif; ?>
