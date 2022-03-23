@@ -6,6 +6,7 @@
 
 <?php if ($isAntiFlickerEnabled) : ?>
 <style>
+    .cs-anti-flicker .page-wrapper {opacity: 0}
     .cs-anti-flicker__container {display: none;z-index: 9999;background: #fff;position: fixed;align-items: center;justify-content: center;width: 100vw;height: 100vh;top: 0;left: 0;}
     .cs-anti-flicker__spinner {display: none;animation: anti-flicker-rotate 2s linear infinite;width: 300px;height: 300px;color: #000;}
     .cs-anti-flicker__spinner circle {stroke: currentColor;stroke-linecap: round;animation: anti-flicker-dash 1.5s ease-in-out infinite;}
