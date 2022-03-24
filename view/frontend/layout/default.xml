@@ -2,24 +2,38 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="head.additional">
-            <block ifconfig="google_optimize/anti_flicker/enabled" name="magesuite_google_optimize.anti_flicker" template="MageSuite_GoogleOptimizeIntegration::anti_flicker.phtml" before="magesuite_google_optimize_scripts">
+            <block
+                ifconfig="google_optimize/anti_flicker/enabled"
+                name="magesuite_google_optimize.anti_flicker.styles"
+                template="MageSuite_GoogleOptimizeIntegration::anti_flicker_styles.phtml"
+                before="magesuite_google_optimize.anti_flicker">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize</argument>
                 </arguments>
             </block>
-            <block ifconfig="google_optimize/integration/enabled" name="magesuite_google_optimize.scripts" template="MageSuite_GoogleOptimizeIntegration::google_optimize_scripts.phtml" after="magepal_gtm_datalayer">
+            <block
+                ifconfig="google_optimize/anti_flicker/enabled"
+                name="magesuite_google_optimize.anti_flicker.scripts"
+                template="MageSuite_GoogleOptimizeIntegration::anti_flicker_scripts.phtml"
+                before="magesuite_google_optimize_scripts">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize</argument>
+                </arguments>
+            </block>
+            <block
+                ifconfig="google_optimize/integration/enabled"
+                name="magesuite_google_optimize.scripts"
+                template="MageSuite_GoogleOptimizeIntegration::google_optimize_scripts.phtml"
+                after="magepal_gtm_datalayer">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize</argument>
                 </arguments>
             </block>
         </referenceBlock>
 
-        <container name="magesuite_google_optimize.anti_flicker.container" htmlTag="div" htmlClass="cs-anti-flicker__container" before="page.wrapper">
-            <block ifconfig="google_optimize/anti_flicker/enabled" name="magesuite_google_optimize.anti_flicker.spinner" template="MageSuite_GoogleOptimizeIntegration::anti_flicker_spinner.phtml">
-                <arguments>
-                    <argument name="view_model" xsi:type="object">MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize</argument>
-                </arguments>
-                <block name="magesuite_google_optimize.anti_flicker.spinner.svg" class="MageSuite\ThemeHelpers\Block\Icon">
+        <referenceContainer name="root">
+            <container name="magesuite_google_optimize.anti_flicker.container" htmlTag="div" htmlClass="cs-anti-flicker__container" before="-">
+                <block ifconfig="google_optimize/anti_flicker/enabled" name="magesuite_google_optimize.anti_flicker.spinner" class="MageSuite\ThemeHelpers\Block\Icon">
                     <arguments>
                         <argument name="icon_url" xsi:type="string">MageSuite_GoogleOptimizeIntegration::images/flicker-spinner.svg</argument>
                         <argument name="css_class" xsi:type="string">cs-anti-flicker__spinner</argument>
@@ -27,7 +41,7 @@
                         <argument name="lazy_loaded" xsi:type="boolean">false</argument>
                     </arguments>
                 </block>
-            </block>
-        </container>
+            </container>
+        </referenceContainer>
     </body>
 </page>

@@ -14,7 +14,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function isIntegrationEnabled(): bool
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool) $this->scopeConfig->isSetFlag(
             self::XML_PATH_GOOGLE_OPTIMIZE_ENABLED,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
@@ -22,7 +22,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function isAsyncScript(): bool
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool) $this->scopeConfig->isSetFlag(
             self::XML_PATH_GOOGLE_OPTIMIZE_ASYNC,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
@@ -38,7 +38,7 @@ class Configuration extends \Magento\Framework\App\Helper\AbstractHelper
 
     public function isAntiFlickerEnabled(): bool
     {
-        return (bool) $this->scopeConfig->getValue(
+        return (bool) $this->scopeConfig->isSetFlag(
             self::XML_PATH_GOOGLE_OPTIMIZE_ANTI_FLICKER_ENABLED,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );

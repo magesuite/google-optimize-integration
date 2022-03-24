@@ -1,0 +1,19 @@
+<?php
+    /** @var \MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize $viewModel */
+    $viewModel = $block->getViewModel();
+    $isAntiFlickerEnabled = $viewModel->isAntiFlickerEnabled();
+?>
+
+<?php if ($isAntiFlickerEnabled) : ?>
+<style>
+    .cs-anti-flicker {overflow:hidden;}
+    .cs-anti-flicker .page-wrapper {opacity: 0;}
+    .cs-anti-flicker__container{display:none;z-index:9999;background:#fff;position:fixed;align-items:center;justify-content:center;width:100vw;height:100vh;top:0;left:0;}
+    .cs-anti-flicker__spinner {display:none;animation:anti-flicker-rotate 2s linear infinite;width:300px;height:300px;color:#000;}
+    .cs-anti-flicker__spinner circle {stroke:currentColor;stroke-linecap:round;animation:anti-flicker-dash 1.5s ease-in-out infinite;}
+    .cs-anti-flicker .cs-anti-flicker__container {display:flex;}
+    .cs-anti-flicker .cs-anti-flicker__spinner {display:block}
+    @keyframes anti-flicker-rotate {100%{transform: rotate(360deg);}}
+    @keyframes anti-flicker-dash {0%{stroke-dasharray:1, 150;stroke-dashoffset:0;}50%{stroke-dasharray:90, 150;stroke-dashoffset: -35;}100%{stroke-dasharray:90, 150;stroke-dashoffset:-124;}}
+</style><script>/* defer-ignore */</script>
+<?php endif; ?>
