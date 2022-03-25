@@ -9,6 +9,7 @@
                 before="magesuite_google_optimize.anti_flicker">
                 <arguments>
                     <argument name="view_model" xsi:type="object">MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize</argument>
+                    <argument name="spinner_hex_color" xsi:type="string">#000000</argument>
                 </arguments>
             </block>
             <block
