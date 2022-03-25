@@ -3,7 +3,7 @@
     <default>
         <google_optimize>
             <integration>
-                <container_id>0</container_id>
+                <container_id></container_id>
                 <enabled>0</enabled>
                 <async>0</async>
             </integration>

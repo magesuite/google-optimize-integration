@@ -60,7 +60,7 @@
                     <label>Include for provided match media</label>
                     <frontend_model>MageSuite\GoogleOptimizeIntegration\Block\System\Form\Field\AntiFlicker</frontend_model>
                     <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
-                    <comment><![CDATA[If provided, anti-flicker will be initialized for specific media queries only]]></comment>
+                    <comment><![CDATA[If provided, anti-flicker will be initialized for specific media queries only. For example: "(max-width: 600px)"]]></comment>
                     <depends>
                         <field id="enabled">1</field>
                     </depends>
