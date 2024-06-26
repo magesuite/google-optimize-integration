@@ -14,10 +14,11 @@ $controller = $block->getRequest()->getFullActionName();
 ?>
 
 <?php if ($isAntiFlickerEnabled) : ?>
-    <script>/* defer-ignore */
+    <?php $scriptString = <<<script
+    /* defer-ignore */
         (function (a, s, y, n, c, h, i, d, e) {
-            const jsonConfig = <?= /* @noEscape */ $jsonConfig ?>;
-            const controller = "<?= /* @noEscape */ $controller ?>"
+            const jsonConfig = {$jsonConfig};
+            const controller = "{$controller}";
 
             if (!jsonConfig) {
                 return;
@@ -57,6 +58,8 @@ $controller = $block->getRequest()->getFullActionName();
                 }, c);
                 h.timeout = c;
             }
-        })(window, document, 'cs-anti-flicker', 'dataLayer', 4000, {'<?= $block->escapeHtml($containerId) ?>': true});
-    </script>
+        })(window, document, 'cs-anti-flicker', 'dataLayer', 4000, {'{$block->escapeHtml($containerId)}': true});
+    script;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false); ?>
 <?php endif; ?>
