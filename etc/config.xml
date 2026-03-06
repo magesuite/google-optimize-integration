@@ -10,8 +10,8 @@
             <anti_flicker>
                 <enabled>0</enabled>
                 <container_id></container_id>
-                <include_paths></include_paths>
-                <include_match_media></include_match_media>
+                <include_paths>{}</include_paths>
+                <include_match_media>{}</include_match_media>
             </anti_flicker>
         </google_optimize>
     </default>
