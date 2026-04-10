@@ -1,13 +1,19 @@
 <?php
-/** @var \MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize $viewModel */
+/** @var \Magento\Framework\View\Element\Template $block */
 /**
  * Anti-flicker script for Google Optimize,
  * extended to allow page-specific and media-query initialization
  * https://support.google.com/optimize/answer/7100284?hl=en
  */
 
+/** @var \MageSuite\GoogleOptimizeIntegration\ViewModel\GoogleOptimize $viewModel */
 $viewModel = $block->getViewModel();
 $isAntiFlickerEnabled = $viewModel->isAntiFlickerEnabled();
+
+if (!$isAntiFlickerEnabled) {
+    return;
+}
+
 $containerId = $viewModel->getContainerIdForAntiFlicker() ?: "";
 $jsonConfig = $viewModel->getAntiFlickerJsonConfig();
 $controller = $block->getRequest()->getFullActionName();
